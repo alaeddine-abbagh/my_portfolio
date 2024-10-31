@@ -19,6 +19,23 @@ export default function Portfolio() {
     }
   }, [darkMode])
 
+  // Parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const elements = document.querySelectorAll('.parallax-element');
+      const mouseX = (e.clientX - window.innerWidth / 2) / 50;
+      const mouseY = (e.clientY - window.innerHeight / 2) / 50;
+
+      elements.forEach((element) => {
+        const el = element as HTMLElement;
+        el.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
@@ -31,7 +48,11 @@ export default function Portfolio() {
           <Link href="#home" className="text-2xl font-bold">AS</Link>
           <div className="hidden md:flex space-x-4">
             {["Home", "About", "Skills", "Experience", "Projects", "Education"].map((item) => (
-              <Link key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-600 dark:hover:text-blue-400">
+              <Link 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                className="nav-link hover:text-blue-600 dark:hover:text-blue-400"
+              >
                 {item}
               </Link>
             ))}
@@ -49,8 +70,8 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section id="home" className="py-20 parallax-container">
+        <div className="container mx-auto px-6 text-center parallax-element">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,10 +102,10 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex justify-center space-x-4"
           >
-            <Button asChild>
+            <Button className="button-glow" asChild>
               <Link href="#contact">Get in Touch</Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" className="button-glow" asChild>
               <Link href="#skills">View Skills</Link>
             </Button>
           </motion.div>
@@ -94,15 +115,15 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-8 flex justify-center space-x-4"
           >
-            <Link href="https://github.com/alaeddine-abbagh" target="_blank" className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
+            <Link href="https://github.com/alaeddine-abbagh" target="_blank" className="social-icon">
               <GithubIcon className="h-6 w-6" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="https://www.linkedin.com/in/aladin-sabbagh-4310b6104/" target="_blank" className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
+            <Link href="https://www.linkedin.com/in/aladin-sabbagh-4310b6104/" target="_blank" className="social-icon">
               <LinkedinIcon className="h-6 w-6" />
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="mailto:sabbaghalaeddine@gmail.com" className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
+            <Link href="mailto:sabbaghalaeddine@gmail.com" className="social-icon">
               <Mail className="h-6 w-6" />
               <span className="sr-only">Email</span>
             </Link>
@@ -113,7 +134,7 @@ export default function Portfolio() {
       {/* About Section */}
       <section id="about" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-fade">About Me</h2>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-8 md:mb-0">
               <Image 
@@ -121,12 +142,12 @@ export default function Portfolio() {
                 alt="Aladin Sabbagh" 
                 width={300} 
                 height={300} 
-                className="rounded-full"
+                className="rounded-full profile-scale"
                 priority
               />
             </div>
             <div className="md:w-2/3 md:pl-8">
-              <p className="text-lg">
+              <p className="text-lg text-fade">
                 Passionate data scientist and MLOps engineer with 3.5 years of hands-on experience at BNPP Bank, continuously enhancing my expertise through online learning. Specialized in developing and deploying AI solutions for sustainable finance, fraud detection, and risk assessment. Based in Paris, I combine strong mathematical background with practical engineering skills to deliver impactful AI solutions.
               </p>
             </div>
@@ -145,7 +166,7 @@ export default function Portfolio() {
               { title: "AI Applications", skills: ["NLP", "Generative AI", "LLMs", "Real-time Monitoring"] },
               { title: "Domain Expertise", skills: ["Sustainable Finance", "Risk Assessment", "Fraud Detection", "Financial Analytics"] }
             ].map((category, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="p-6 hover-card">
                 <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
                 <ul className="list-disc list-inside">
                   {category.skills.map((skill, skillIndex) => (
@@ -198,7 +219,7 @@ export default function Portfolio() {
                 ]
               }
             ].map((job, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="p-6 hover-card">
                 <h3 className="text-2xl font-semibold mb-2">{job.title}</h3>
                 <h4 className="text-xl mb-2">{job.company}</h4>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">{job.date}</p>
@@ -236,7 +257,7 @@ export default function Portfolio() {
                 description: "Advanced techniques for customizing large language models to specific domains while maintaining efficiency and performance."
               }
             ].map((project, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="p-6 hover-card">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p>{project.description}</p>
               </Card>
@@ -266,7 +287,7 @@ export default function Portfolio() {
                 link: "https://www.telecom-paris.fr/en/school/rankings"
               }
             ].map((edu, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="p-6 hover-card">
                 <Link href={edu.link} target="_blank" className="flex items-center">
                   <Image 
                     src={edu.logo} 
