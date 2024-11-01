@@ -192,7 +192,7 @@ export default function Portfolio() {
                 company: "BNPP Bank",
                 date: "September 2023 - Present",
                 responsibilities: [
-                  "Lead AI and MLOps initiatives for risk management, deploying LLMs and generative AI for advanced risk assessment",
+                  "Lead AI and MLOps initiatives for risk management, deploying LLMs and generative AI for advanced risk assessment ( RAG and Summarisation)",
                   "Prompt Engineering Research : Experiment with different prompt techniques to optimize LLM outputs for various tasks",
                   "Establish MLOps best practices, integrating CI/CD pipelines for model deployment on cloud and edge environments",
                   "Develop an assistant that helps programmers by suggesting code snippets, increasing team productivity",
@@ -241,9 +241,18 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold mb-8 text-center">Personal Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
+
+{
+  title: "Emoji Generator ( click here to check it)",
+  description: "An LLM emoji generator in production, click here to check it out"
+}, 
               {
-                title: "Information Search with Python and LLM",
-                description: "Developed a Streamlit-powered Python application that leverages LLM technology to search and analyze information about individuals, providing comprehensive insights from internet sources."
+                title: "Icebreaker: People Search with LLMs",
+                description: "Developed a Streamlit-powered Langchain Python application that leverages LLM technology to search and analyze information about individuals, providing comprehensive insights from internet sources."
+              },
+              {
+                title: "LLM for Mathematics ( coming live soon)",
+                description: "Specialized language model fine-tuned for mathematical problem-solving and theorem proving applications."
               },
               {
                 title: "Flutter & C+ Development Suite",
@@ -251,20 +260,14 @@ export default function Portfolio() {
               },
               {
                 title: "RAG (Retrieval-Augmented Generation)",
-                description: "Implementation of a sophisticated RAG system that enhances LLM responses with real-time document retrieval and context integration."
+                description: "Implementation of a RAG system that enhances LLM responses with real-time document retrieval and context integration."
               },
-              {
-                title: "LLM for Mathematics",
-                description: "Specialized language model fine-tuned for mathematical problem-solving and theorem proving applications."
-              },
+             
               {
                 title: "LLM Fine Tuning",
                 description: "Advanced techniques for customizing large language models to specific domains while maintaining efficiency and performance."
-              },
-              {
-                title: "Emoji Generator",
-                description: "An AI-powered tool that generates custom emojis based on text descriptions, leveraging deep learning for creative expression."
               }
+             
             ].map((project, index) => (
               <Card key={index} className="p-6 hover-card">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
@@ -338,7 +341,9 @@ export default function Portfolio() {
               The R Programming Environment (Coursera)
             </div>
             <div className="text-lg">
+              <Link href="https://www.coursera.org/learn/financial-risk-management-with-r" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
               Financial Risk Management with R
+              </Link>
             </div>
             <div className="text-lg">
               <Link href="https://www.coursera.org/specializations/deep-learning" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
