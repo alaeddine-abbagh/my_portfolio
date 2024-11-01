@@ -148,7 +148,9 @@ export default function Portfolio() {
             </div>
             <div className="md:w-2/3 md:pl-8">
               <p className="text-lg text-fade">
-                Passionate data scientist and MLOps engineer with 3.5 years of hands-on experience at BNPP Bank, continuously enhancing my expertise through online learning. Specialized in developing and deploying AI solutions for sustainable finance, fraud detection, and risk assessment. Based in Paris, I combine strong mathematical background with practical engineering skills to deliver impactful AI solutions.
+              With 5 years of experience in the AI ecosystem and 12 years coaching Math Olympiads, 
+              I bring a strong mathematical foundation and a proven track record of identifying business needs and tailoring AI solutions to meet them. 
+              I have successfully led teams in deploying AI solutions into production, enhancing developer productivity, and driving impactful results through effective team leadership.
               </p>
             </div>
           </div>
@@ -163,8 +165,8 @@ export default function Portfolio() {
             {[
               { title: "Machine Learning", skills: ["TensorFlow", "PyTorch", "MLOps", "Deep Learning"] },
               { title: "Programming", skills: ["Python", "R", "Flutter", "CI/CD"] },
-              { title: "AI Applications", skills: ["NLP", "Generative AI", "LLMs", "Real-time Monitoring"] },
-              { title: "Domain Expertise", skills: ["Sustainable Finance", "Risk Assessment", "Fraud Detection", "Financial Analytics"] }
+              { title: "AI Applications", skills: ["Generative AI", "LLMs","NLP", "Real-time Monitoring"] },
+              { title: "Domain Expertise", skills: ["Fraud Detection", "Financial Analytics", "Risk Assessment", "Sustainable Finance"] }
             ].map((category, index) => (
               <Card key={index} className="p-6 hover-card">
                 <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
@@ -191,8 +193,9 @@ export default function Portfolio() {
                 date: "September 2023 - Present",
                 responsibilities: [
                   "Lead AI and MLOps initiatives for risk management, deploying LLMs and generative AI for advanced risk assessment",
-                  "Leverage multimodal models for complex data analysis across risk profiles",
+                  "Prompt Engineering Research : Experiment with different prompt techniques to optimize LLM outputs for various tasks",
                   "Establish MLOps best practices, integrating CI/CD pipelines for model deployment on cloud and edge environments",
+                  "Develop an assistant that helps programmers by suggesting code snippets, increasing team productivity",
                   "Innovate on model optimization techniques including pruning and quantization for edge device constraints"
                 ]
               },
@@ -202,8 +205,8 @@ export default function Portfolio() {
                 date: "September 2021 - August 2023",
                 responsibilities: [
                   "Built NLP-based fraud detection models and optimized name-screening algorithms, reducing fraud rates by 25%",
-                  "Reduced compliance check time by 40% through automated processing",
-                  "Collaborated with compliance officers to ensure regulatory alignment",
+                  "RAG solution: Reduced compliance check time by 40% through automated processing",
+                  "LLM Chatbot: Collaborated with compliance officers to ensure regulatory alignment",
                   "Utilized TensorFlow and PyTorch to improve detection accuracy and minimize false positives"
                 ]
               },
@@ -214,9 +217,7 @@ export default function Portfolio() {
                 responsibilities: [
                   "Developed AI models to monitor and reduce CO2 emissions across real estate assets",
                   "Contributed to BNPP's sustainable finance goals aligned with the 2015 Paris Climate Agreement",
-                  "Partnered with ESG teams to optimize data-driven strategies, delivering €10M in annual cost savings",
-                  "Implemented AI solutions for real-time environmental impact tracking and climate standards compliance"
-                ]
+                 ]
               }
             ].map((job, index) => (
               <Card key={index} className="p-6 hover-card">
@@ -241,8 +242,12 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "Emoji Generator",
-                description: "An AI-powered tool that generates custom emojis based on text descriptions, leveraging deep learning for creative expression."
+                title: "Information Search with Python and LLM",
+                description: "Developed a Streamlit-powered Python application that leverages LLM technology to search and analyze information about individuals, providing comprehensive insights from internet sources."
+              },
+              {
+                title: "Flutter & C+ Development Suite",
+                description: "Created multiple web and Android applications including an interactive Quiz App for knowledge testing and a comprehensive Meal Planning app with recipe management features."
               },
               {
                 title: "RAG (Retrieval-Augmented Generation)",
@@ -255,6 +260,10 @@ export default function Portfolio() {
               {
                 title: "LLM Fine Tuning",
                 description: "Advanced techniques for customizing large language models to specific domains while maintaining efficiency and performance."
+              },
+              {
+                title: "Emoji Generator",
+                description: "An AI-powered tool that generates custom emojis based on text descriptions, leveraging deep learning for creative expression."
               }
             ].map((project, index) => (
               <Card key={index} className="p-6 hover-card">
