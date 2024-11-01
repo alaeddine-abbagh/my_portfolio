@@ -150,7 +150,7 @@ export default function Portfolio() {
               <p className="text-lg text-fade">
               With 5 years of experience in the AI ecosystem and 12 years coaching Math Olympiads, 
               I bring a strong mathematical foundation and a proven track record of identifying business needs and tailoring AI solutions to meet them. 
-              I have successfully led teams in deploying AI solutions into production, enhancing developer productivity, and driving impactful results through effective team leadership.
+              By always following the latest industry best practices and methodologies, I have successfully led teams in deploying AI solutions into production, enhancing developer productivity, and driving impactful results through effective team leadership.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -182,7 +182,7 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-white dark:bg-gray-800">
+      <section id="experience" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">Professional Experience</h2>
           <div className="space-y-12">
@@ -236,7 +236,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">Personal Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -276,7 +276,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 bg-white dark:bg-gray-800">
+      <section id="education" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">Education</h2>
           <div className="space-y-8">
@@ -314,6 +314,47 @@ export default function Portfolio() {
                 </Link>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills & Certificates Section */}
+      <section id="certificates" className="py-20 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-8 text-center">Skills & certificates</h2>
+          <div className="space-y-4">
+            <div className="text-lg">
+              <Link href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
+                Machine Learning Engineering for Production (MLOps) Specialization
+              </Link>
+              <span className="text-gray-600 dark:text-gray-400"> (5 courses | 6 Months| Coursera)</span>
+            </div>
+            <div className="text-lg">
+              <Link href="https://www.coursera.org/learn/machine-learning-operations-mlops-fundamentals" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
+                MLOps (Machine Learning Operations) Fundamentals
+              </Link>
+            </div>
+            <div className="text-lg">
+              The R Programming Environment (Coursera)
+            </div>
+            <div className="text-lg">
+              Financial Risk Management with R
+            </div>
+            <div className="text-lg">
+              <Link href="https://www.coursera.org/specializations/deep-learning" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
+                Deep Learning Specialization
+              </Link>
+              <span className="text-gray-600 dark:text-gray-400"> (5 courses | 6 Months | Coursera)</span>
+            </div>
+            <div className="text-lg">
+              Math Olympiad Coach (for the French and Tunisian) teams since 10 years
+            </div>
+            <div className="text-lg">
+              Honorable mention in IMO (International Math Olympiads) 
+            </div>
+            <div className="text-lg">
+              Silver medal in PAMO (African Math Olympiads) 
+            </div>
           </div>
         </div>
       </section>
