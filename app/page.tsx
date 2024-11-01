@@ -10,6 +10,7 @@ import { GithubIcon, LinkedinIcon, Mail, Moon, Sun } from "lucide-react"
 
 export default function Portfolio() {
   const [darkMode, setDarkMode] = useState(false)
+  const [copySuccess, setCopySuccess] = useState(false)
 
   useEffect(() => {
     if (darkMode) {
@@ -39,6 +40,16 @@ export default function Portfolio() {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
+
+  const copyEmailToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText('sabbaghalaeddine@gmail.com');
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000); // Reset after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -78,7 +89,7 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
             className="text-5xl font-bold mb-2"
           >
-            Aladin Sabbagh
+            👨‍💻 Aladin Sabbagh
           </motion.h1>
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -102,8 +113,11 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex justify-center space-x-4"
           >
-            <Button className="button-glow" asChild>
-              <Link href="#contact">Get in Touch</Link>
+            <Button 
+              className="button-glow" 
+              onClick={copyEmailToClipboard}
+            >
+              {copySuccess ? 'Email Copied! ✓' : 'Get in Touch'}
             </Button>
             <Button variant="outline" className="button-glow" asChild>
               <Link href="#skills">View Skills</Link>
@@ -134,7 +148,7 @@ export default function Portfolio() {
       {/* About Section */}
       <section id="about" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center text-fade">About Me</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-fade">👋 About Me</h2>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-8 md:mb-0">
               <Image 
@@ -160,13 +174,13 @@ export default function Portfolio() {
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center">Technical Skills</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">🛠️ Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Machine Learning", skills: ["TensorFlow", "PyTorch", "MLOps", "Deep Learning"] },
-              { title: "Programming", skills: ["Python", "R", "Flutter", "CI/CD"] },
-              { title: "AI Applications", skills: ["Generative AI", "LLMs","NLP", "Real-time Monitoring"] },
-              { title: "Domain Expertise", skills: ["Fraud Detection", "Financial Analytics", "Risk Assessment", "Sustainable Finance"] }
+              { title: "🤖 Machine Learning", skills: ["TensorFlow", "PyTorch", "MLOps", "Deep Learning"] },
+              { title: "💻 Programming", skills: ["Python", "R", "Flutter", "CI/CD"] },
+              { title: "🧠 AI Applications", skills: ["Generative AI", "LLMs","NLP", "Real-time Monitoring"] },
+              { title: "📊 Domain Expertise", skills: ["Fraud Detection", "Financial Analytics", "Risk Assessment", "Sustainable Finance"] }
             ].map((category, index) => (
               <Card key={index} className="p-6 hover-card">
                 <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
@@ -184,11 +198,11 @@ export default function Portfolio() {
       {/* Experience Section */}
       <section id="experience" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center">Professional Experience</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">💼 Professional Experience</h2>
           <div className="space-y-12">
             {[
               {
-                title: "Risk Department – Innovation Team",
+                title: "⚡ Risk Department – Innovation Team",
                 company: "BNPP Bank",
                 date: "September 2023 - Present",
                 responsibilities: [
@@ -200,7 +214,7 @@ export default function Portfolio() {
                 ]
               },
               {
-                title: "Compliance Department – Fraud Detection and Transaction Monitoring",
+                title: "🔍 Compliance Department – Fraud Detection and Transaction Monitoring",
                 company: "BNPP Bank",
                 date: "September 2021 - August 2023",
                 responsibilities: [
@@ -211,7 +225,7 @@ export default function Portfolio() {
                 ]
               },
               {
-                title: "ESG Department – Sustainable Finance & Climate Change",
+                title: "🌍 ESG Department – Sustainable Finance & Climate Change",
                 company: "BNPP Bank",
                 date: "February 2020 - August 2021",
                 responsibilities: [
@@ -238,32 +252,32 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center">Personal Projects</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">🚀 Personal Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "Emoji Generator",
-                description: "An LLM emoji generator in production, sign up with email and then describe your favourite emoji!",
+                title: "😊 Emoji Generator",
+                description: "An LLM emoji generator in production, sign up with email and then describe your favourite emoji! Like and see the emojis of others ( Refresh if does not show immediately) ",
                 link: "https://emojimakeraladin.vercel.app"
               },
               {
-                title: "LLM for Mathematics ( coming live soon)",
+                title: "🔢 LLM for Mathematics ( coming live soon)",
                 description: "Specialized language model fine-tuned for mathematical problem-solving and theorem proving applications."
               },
               {
-                title: "Icebreaker: People Search with LLMs",
+                title: "🔎 Icebreaker: People Search with LLMs",
                 description: "Developed a Streamlit-powered Langchain Python application that leverages LLM technology to search and analyze information about individuals, providing comprehensive insights from internet sources."
               },
               {
-                title: "Flutter & C+ Development Suite",
+                title: "📱 Flutter & C+ Development Suite",
                 description: "Created multiple web and Android applications including an interactive Quiz App for knowledge testing and a comprehensive Meal Planning app with recipe management features."
               },
               {
-                title: "RAG (Retrieval-Augmented Generation)",
+                title: "🔄 RAG (Retrieval-Augmented Generation)",
                 description: "Implementation of a RAG system that enhances LLM responses with real-time document retrieval and context integration."
               },
               {
-                title: "LLM Fine Tuning",
+                title: "⚙️ LLM Fine Tuning",
                 description: "Advanced techniques for customizing large language models to specific domains while maintaining efficiency and performance."
               }
             ].map((project, index) => (
@@ -288,7 +302,7 @@ export default function Portfolio() {
       {/* Education Section */}
       <section id="education" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center">Education</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">🎓 Education</h2>
           <div className="space-y-8">
             {[
               {
@@ -331,7 +345,7 @@ export default function Portfolio() {
       {/* Skills & Certificates Section */}
       <section id="certificates" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-center">Skills & certificates</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">📜 Skills & Certificates</h2>
           <div className="space-y-4">
             <div className="text-lg">
               <Link href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
