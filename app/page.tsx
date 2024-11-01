@@ -241,18 +241,18 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold mb-8 text-center">Personal Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-
-{
-  title: "Emoji Generator ( click here to check it)",
-  description: "An LLM emoji generator in production, click here to check it out"
-}, 
               {
-                title: "Icebreaker: People Search with LLMs",
-                description: "Developed a Streamlit-powered Langchain Python application that leverages LLM technology to search and analyze information about individuals, providing comprehensive insights from internet sources."
+                title: "Emoji Generator",
+                description: "An LLM emoji generator in production, sign up with email and then describe your favourite emoji!",
+                link: "https://emojimakeraladin.vercel.app"
               },
               {
                 title: "LLM for Mathematics ( coming live soon)",
                 description: "Specialized language model fine-tuned for mathematical problem-solving and theorem proving applications."
+              },
+              {
+                title: "Icebreaker: People Search with LLMs",
+                description: "Developed a Streamlit-powered Langchain Python application that leverages LLM technology to search and analyze information about individuals, providing comprehensive insights from internet sources."
               },
               {
                 title: "Flutter & C+ Development Suite",
@@ -262,17 +262,24 @@ export default function Portfolio() {
                 title: "RAG (Retrieval-Augmented Generation)",
                 description: "Implementation of a RAG system that enhances LLM responses with real-time document retrieval and context integration."
               },
-             
               {
                 title: "LLM Fine Tuning",
                 description: "Advanced techniques for customizing large language models to specific domains while maintaining efficiency and performance."
               }
-             
             ].map((project, index) => (
-              <Card key={index} className="p-6 hover-card">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p>{project.description}</p>
-              </Card>
+              project.link ? (
+                <Link key={index} href={project.link} target="_blank" className="block">
+                  <Card className="p-6 hover-card h-full transition-transform hover:scale-105">
+                    <h3 className="text-xl font-semibold mb-2">{project.title} (click to try it!)</h3>
+                    <p>{project.description}</p>
+                  </Card>
+                </Link>
+              ) : (
+                <Card key={index} className="p-6 hover-card">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p>{project.description}</p>
+                </Card>
+              )
             ))}
           </div>
         </div>
