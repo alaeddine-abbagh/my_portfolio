@@ -261,7 +261,7 @@ export default function Portfolio() {
                 link: "https://emojimakeraladin.vercel.app"
               },
               {
-                title: "🔢 LLM for Mathematics ( coming live soon)",
+                title: "🔢 LLM for Mathematics (coming live soon)",
                 description: "Specialized language model fine-tuned for mathematical problem-solving and theorem proving applications."
               },
               {
